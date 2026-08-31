@@ -653,28 +653,30 @@ body {
 .section-shadow-seam {
     position: relative;
     box-shadow:
-        inset 0 10px 14px -12px rgba(0, 0, 0, 0.28),
-        inset 0 -10px 14px -12px rgba(0, 0, 0, 0.28);
+        inset 0 8px 16px -14px rgba(0, 0, 0, 0.16),
+        inset 0 -8px 16px -14px rgba(0, 0, 0, 0.16);
 }
 
 /* Variante solo arriba o solo abajo, por si no querés el efecto en ambos bordes */
 .section-shadow-seam-top {
-    box-shadow: inset 0 10px 14px -12px rgba(0, 0, 0, 0.28);
+    box-shadow: inset 0 8px 16px -14px rgba(0, 0, 0, 0.16);
 }
 
 .section-shadow-seam-bottom {
-    box-shadow: inset 0 -10px 14px -12px rgba(0, 0, 0, 0.28);
+    box-shadow: inset 0 -8px 16px -14px rgba(0, 0, 0, 0.16);
 }
 
-/* Línea divisoria decorativa (línea dorada + adorno de puntitos), repetida
-   horizontalmente, para usar entre secciones. */
+/* Línea divisoria decorativa: trazo curvo fino que se desvanece en los
+   extremos + puntitos degradados, repetida horizontalmente. Es puramente
+   decorativa: la división real entre secciones la dan la sombra
+   (.section-shadow-seam) y el cambio de tono de fondo. */
 .deco-divider {
     width: 100%;
-    height: 22px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='22' viewBox='0 0 140 22'%3E%3Cline x1='0' y1='11' x2='55' y2='11' stroke='%239B774C' stroke-width='1'/%3E%3Cg stroke='%239B774C' stroke-width='1.1' stroke-linecap='round'%3E%3Cline x1='58' y1='9' x2='58' y2='13'/%3E%3Cline x1='62' y1='5' x2='62' y2='17'/%3E%3Cline x1='66' y1='8' x2='66' y2='14'/%3E%3C/g%3E%3Cline x1='85' y1='11' x2='140' y2='11' stroke='%239B774C' stroke-width='1'/%3E%3C/svg%3E");
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='20' viewBox='0 0 190 20'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='150' y2='0' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%239B774C' stop-opacity='0'/%3E%3Cstop offset='25%25' stop-color='%239B774C' stop-opacity='0.85'/%3E%3Cstop offset='75%25' stop-color='%239B774C' stop-opacity='0.85'/%3E%3Cstop offset='100%25' stop-color='%239B774C' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0,10 Q75,5 150,10' stroke='url(%23g)' stroke-width='0.9' fill='none'/%3E%3Ccircle cx='159' cy='9.6' r='0.7' fill='%239B774C' opacity='0.75'/%3E%3Ccircle cx='164' cy='9.3' r='1.3' fill='%239B774C' opacity='0.85'/%3E%3Ccircle cx='170' cy='9.8' r='0.6' fill='%239B774C' opacity='0.6'/%3E%3C/svg%3E");
     background-repeat: repeat-x;
     background-position: center;
-    opacity: 0.75;
+    opacity: 0.9;
 }
 
 /* Countdown */
@@ -1104,7 +1106,7 @@ body {
 }
 
 .footer-date {
-    color: hsl(var(--gold));
+    color: #000000;
     font-size: 0.875rem;
     margin-top: 1rem;
 }

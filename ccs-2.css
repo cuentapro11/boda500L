@@ -11,7 +11,7 @@
     --brown-light: 33 24% 60%;
     --brown-dark: 33 40% 28%;
     --cream: 0 0% 96%;
-    --warm-white: 0 0% 97%;
+    --warm-white: 0 0% 96%;
     --shadow-elegant: 0 10px 30px -10px hsl(33 34% 45% / 0.28);
     --shadow-gold: 0 4px 20px hsl(33 34% 48% / 0.22);
     /* Nuevo tono para laterales tipo papel (blanco piedra) */
@@ -647,6 +647,19 @@ body {
     background-color: hsl(var(--warm-white));
 }
 
+/* Alternancia de tonos: cada sección alterna blanco puro / blanco cálido,
+   para que la división entre secciones se note por el color de fondo
+   (además de la sombra), no por la línea decorativa. */
+.countdown-section {
+    background-color: hsl(var(--warm-white));
+}
+
+.events-section,
+.party-section,
+.rsvp-section {
+    background-color: #ffffff;
+}
+
 /* Línea de sombra en la costura: da la sensación de que la sección
    está "por debajo" de las secciones vecinas (efecto de capas).
    Aplicar esta clase a cualquier <section> para replicar el efecto. */
@@ -682,13 +695,6 @@ body {
 /* Countdown */
 .countdown-section {
     text-align: center;
-    background-color: #ffffff;
-    border: 1px solid hsl(var(--gold) / 0.25);
-    border-radius: 12px;
-    box-shadow:
-        0 8px 24px rgba(0,0,0,0.06),
-        inset 0 10px 14px -12px rgba(0, 0, 0, 0.28),
-        inset 0 -10px 14px -12px rgba(0, 0, 0, 0.28);
     padding: 2.5rem 1rem;
     width: 100%;
     max-width: none;

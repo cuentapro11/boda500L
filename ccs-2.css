@@ -10,8 +10,8 @@
     --brown: 33 34% 45%;
     --brown-light: 33 24% 60%;
     --brown-dark: 33 40% 28%;
-    --cream: 0 0% 96%;
-    --warm-white: 0 0% 96%;
+    --cream: 0 0% 98%;
+    --warm-white: 33 26% 93%;
     --shadow-elegant: 0 10px 30px -10px hsl(33 34% 45% / 0.28);
     --shadow-gold: 0 4px 20px hsl(33 34% 48% / 0.22);
     /* Nuevo tono para laterales tipo papel (blanco piedra) */
@@ -666,8 +666,8 @@ body {
 .section-shadow-seam {
     position: relative;
     box-shadow:
-        inset 0 8px 16px -14px rgba(0, 0, 0, 0.16),
-        inset 0 -8px 16px -14px rgba(0, 0, 0, 0.16);
+        inset 0 10px 18px -14px rgba(0, 0, 0, 0.22),
+        inset 0 -10px 18px -14px rgba(0, 0, 0, 0.22);
 }
 
 /* Variante solo arriba o solo abajo, por si no querés el efecto en ambos bordes */
@@ -689,7 +689,7 @@ body {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='20' viewBox='0 0 190 20'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='150' y2='0' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%239B774C' stop-opacity='0'/%3E%3Cstop offset='25%25' stop-color='%239B774C' stop-opacity='0.85'/%3E%3Cstop offset='75%25' stop-color='%239B774C' stop-opacity='0.85'/%3E%3Cstop offset='100%25' stop-color='%239B774C' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0,10 Q75,5 150,10' stroke='url(%23g)' stroke-width='0.9' fill='none'/%3E%3Ccircle cx='159' cy='9.6' r='0.7' fill='%239B774C' opacity='0.75'/%3E%3Ccircle cx='164' cy='9.3' r='1.3' fill='%239B774C' opacity='0.85'/%3E%3Ccircle cx='170' cy='9.8' r='0.6' fill='%239B774C' opacity='0.6'/%3E%3C/svg%3E");
     background-repeat: repeat-x;
     background-position: center;
-    opacity: 0.9;
+    opacity: 0.7;
 }
 
 /* Countdown */

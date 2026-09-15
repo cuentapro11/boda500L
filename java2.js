@@ -88,9 +88,20 @@ function initializeModal() {
         // playVideo() se llama de inmediato, dentro del mismo tick del click.
         // Eso es lo que iOS necesita para no bloquear el audio.
         if (playerReady && player) {
+            player.unMute();
+            player.setVolume(100);
             player.playVideo();
             isPlaying = true;
             updateMusicIcon();
+            // En iOS/Safari a veces el primer playVideo() no arranca el audio
+            // aunque sí "conecta" el gesto; reintentamos una vez, todavía
+            // dentro del mismo ciclo de interacción del usuario.
+            setTimeout(() => {
+                if (player && typeof player.getPlayerState === 'function' && player.getPlayerState() !== 1) {
+                    player.unMute();
+                    player.playVideo();
+                }
+            }, 300);
         }
         // Si el player todavía no está listo (conexión lenta), onPlayerReady
         // se encarga de reproducir apenas termine de inicializar.
@@ -147,6 +158,8 @@ function onPlayerReady(event) {
     // apenas esté listo.
     if (enableMusic && !isPlaying) {
         document.getElementById('musicPlayer').style.display = 'block';
+        event.target.unMute();
+        event.target.setVolume(100);
         event.target.playVideo();
         isPlaying = true;
         updateMusicIcon();
@@ -327,8 +340,8 @@ function initializeParallax() {
 // Funciones de los botones
 function openLocation(location) {
     const addresses = {
-        ceremony: "Parroquia Nuestra Señora de Lujan, Av. Pergamino 203, Santo Domingo",
-        celebration: "Salón de fiestas Avril, Av. Los Reartes 12, Santo Domingo"
+        ceremony: "Iglesia Ejemplo, Calle Principal #123, Sector Ejemplo, Santo Domingo",
+        celebration: "Salón de Fiestas Ejemplo, Av. Modelo #456, Sector Ejemplo, Santo Domingo"
     };
     
     const address = addresses[location];
@@ -336,10 +349,14 @@ function openLocation(location) {
     window.open(mapsUrl, '_blank');
 }
 
-function suggestMusic() {
-    const whatsappMessage = "¡Hola! Me gustaría sugerir una canción para la playlist de la boda de Rafael y Juana 🎵";
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappUrl, '_blank');
+// NOTA: esta es una plantilla de ejemplo. Reemplaza el contenido de estas
+// funciones con tu propio enlace (carpeta de Google Drive, Google Form, etc.)
+// cuando personalices la invitación.
+
+function uploadPhoto() {
+    // Ejemplo: aquí se debe colocar el enlace real a la carpeta de Google Drive.
+    // window.open('https://drive.google.com/...', '_blank');
+    showToast("Comparte tus fotos", "Aquí irá el enlace a la carpeta de Google Drive para subir tus fotos (ejemplo).");
 }
 
 function showDressCode() {
@@ -351,15 +368,14 @@ function showTips() {
 }
 
 function showGifts() {
-    const message = "Hola, me gustaría información sobre los regalos para la boda de Rafael y Juana 🎁";
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    // Ejemplo: aquí se debe colocar el enlace real (lista de regalos, cuenta, etc.).
+    showToast("Nuestro regalo es tu presencia", "Aquí irá el enlace o la información de regalos (ejemplo).");
 }
 
 function confirmAttendance() {
-    const message = "¡Hola! Quiero confirmar mi asistencia a la boda de Rafael y Juana el 31 de Diciembre 💒✨";
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    // Ejemplo: aquí se debe colocar el enlace real al formulario de Google Forms.
+    // window.open('https://forms.google.com/...', '_blank');
+    showToast("Confirmar asistencia", "Aquí irá el enlace a tu formulario de Google Forms (ejemplo).");
 }
 
 // Sistema de Toast
